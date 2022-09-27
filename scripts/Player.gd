@@ -112,7 +112,7 @@ func attack2_animation_finished():
 
 #Attack_3 function
 func attack3_state(delta):
-	velocity = attack_mv_vector * 200
+	velocity = attack_mv_vector * 60
 	move()
 	animationState.travel("attack3")
 func attack3_animation_finished():
