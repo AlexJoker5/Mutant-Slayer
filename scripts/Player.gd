@@ -96,8 +96,7 @@ func attack1_state(delta):
 	if attack_combo == 3:
 		$AttackResetTimer.start()
 		animationState.travel("attack1")
-
-	elif attack_combo == 2 and Input.is_action_just_pressed("attack_1"):
+	if attack_combo == 2 and Input.is_action_just_pressed("attack_1"):
 		$AttackResetTimer.start()
 		animationState.travel("attack1.1")
 	elif attack_combo == 1 and Input.is_action_just_pressed("attack_1"):
