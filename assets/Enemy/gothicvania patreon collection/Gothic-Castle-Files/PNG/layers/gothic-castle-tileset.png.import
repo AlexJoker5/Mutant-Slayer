@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/gothic-castle-tileset.png-eb2b92f8c2fe8c4de7d1b3a4c5c467ce.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/Enemy/gothicvania patreon collection/Gothic-Castle-Files/PNG/layers/gothic-castle-tileset.png"
+dest_files=[ "res://.import/gothic-castle-tileset.png-eb2b92f8c2fe8c4de7d1b3a4c5c467ce.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

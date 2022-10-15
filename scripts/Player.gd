@@ -25,7 +25,6 @@ func _ready():
 	$Attack/attack_collision.disabled = true
 
 func _physics_process(delta):
-	print(velocity)
 	match state:
 		MOVE:
 			move_state(delta)
