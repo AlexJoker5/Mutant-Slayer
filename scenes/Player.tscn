@@ -1,6 +1,8 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/Animations/Player.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://scenes/spell_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/spell_2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=3]
@@ -540,9 +542,51 @@ tracks/4/keys = {
 "values": [ Vector2( -3, 10 ) ]
 }
 
+[sub_resource type="Animation" id=53]
+resource_name = "spell2_cast"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "spell2_cast" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 1, 2, 3, 4, 1, 2, 3 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spellCast_animation_finished"
+} ]
+}
+
 [sub_resource type="Animation" id=49]
 resource_name = "spell_cast"
-length = 0.8
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -574,7 +618,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.8 ),
+"times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -644,6 +688,9 @@ animation = "attack3"
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "dash"
 
+[sub_resource type="AnimationNodeAnimation" id=54]
+animation = "spell2_cast"
+
 [sub_resource type="AnimationNodeAnimation" id=50]
 animation = "spell_cast"
 
@@ -701,6 +748,11 @@ priority = 0
 [sub_resource type="AnimationNodeStateMachineTransition" id=52]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+switch_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Idle/node = SubResource( 7 )
 states/Idle/position = Vector2( 348, 55 )
@@ -716,13 +768,15 @@ states/attack3/node = SubResource( 43 )
 states/attack3/position = Vector2( 625.211, 150.568 )
 states/dash/node = SubResource( 17 )
 states/dash/position = Vector2( 66.2105, 55 )
+states/spell2_cast/node = SubResource( 54 )
+states/spell2_cast/position = Vector2( 371.211, -118.031 )
 states/spell_cast/node = SubResource( 50 )
 states/spell_cast/position = Vector2( 588.211, -67.4325 )
 states/walk/node = SubResource( 9 )
-states/walk/position = Vector2( 348, -33 )
-transitions = [ "Idle", "attack1", SubResource( 10 ), "attack1", "Idle", SubResource( 11 ), "dash", "Idle", SubResource( 18 ), "Idle", "dash", SubResource( 19 ), "Idle", "walk", SubResource( 24 ), "walk", "Idle", SubResource( 25 ), "attack1", "attack1.1", SubResource( 26 ), "attack1.1", "attack1.2", SubResource( 28 ), "attack1", "dash", SubResource( 34 ), "dash", "attack1", SubResource( 35 ), "attack1.1", "Idle", SubResource( 36 ), "attack1.2", "Idle", SubResource( 37 ), "Idle", "attack2", SubResource( 40 ), "attack2", "Idle", SubResource( 41 ), "Idle", "attack3", SubResource( 44 ), "attack3", "Idle", SubResource( 45 ), "Idle", "spell_cast", SubResource( 51 ), "spell_cast", "Idle", SubResource( 52 ) ]
+states/walk/position = Vector2( 229, -80 )
+transitions = [ "Idle", "attack1", SubResource( 10 ), "attack1", "Idle", SubResource( 11 ), "dash", "Idle", SubResource( 18 ), "Idle", "dash", SubResource( 19 ), "Idle", "walk", SubResource( 24 ), "walk", "Idle", SubResource( 25 ), "attack1", "attack1.1", SubResource( 26 ), "attack1.1", "attack1.2", SubResource( 28 ), "attack1", "dash", SubResource( 34 ), "dash", "attack1", SubResource( 35 ), "attack1.1", "Idle", SubResource( 36 ), "attack1.2", "Idle", SubResource( 37 ), "Idle", "attack2", SubResource( 40 ), "attack2", "Idle", SubResource( 41 ), "Idle", "attack3", SubResource( 44 ), "attack3", "Idle", SubResource( 45 ), "Idle", "spell_cast", SubResource( 51 ), "spell_cast", "Idle", SubResource( 52 ), "Idle", "spell2_cast", SubResource( 55 ), "spell2_cast", "Idle", SubResource( 56 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -285.789, -71.0313 )
+graph_offset = Vector2( -195.789, -167.031 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
@@ -745,6 +799,7 @@ anims/attack1.2 = SubResource( 21 )
 anims/attack2 = SubResource( 38 )
 anims/attack3 = SubResource( 42 )
 anims/dash = SubResource( 16 )
+anims/spell2_cast = SubResource( 53 )
 anims/spell_cast = SubResource( 49 )
 anims/walk = SubResource( 6 )
 
@@ -766,5 +821,11 @@ shape = SubResource( 48 )
 [node name="attack_collision" type="CollisionPolygon2D" parent="Attack"]
 polygon = PoolVector2Array( 4, -12, 13, -11, 21, -4, 22, 5, 14, 15, 9, 17, -14, 15, -9, 10, 10, 10, 14, -2 )
 disabled = true
+
+[node name="spell_1" parent="." instance=ExtResource( 2 )]
+
+[node name="spell_2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -17 )
+scale = Vector2( 4, 3 )
 
 [connection signal="timeout" from="AttackResetTimer" to="." method="_on_Timer_timeout"]

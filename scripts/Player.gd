@@ -15,17 +15,20 @@ enum{
 	ATTACK2,
 	ATTACK3,
 	DASH,
-	SPELL_CAST
+	SPELL1_CAST,
+	SPELL2_CAST
 }
 var state = MOVE
 var velocity : Vector2 = Vector2.ZERO
 onready var animationState = $AnimationTree.get("parameters/playback")
 
+
 func _ready():
 	$Attack/attack_collision.disabled = true
+	$spell_1.visible = false
+	$spell_2.visible = false
 
 func _physics_process(delta):
-	print(velocity)
 	match state:
 		MOVE:
 			move_state(delta)
@@ -37,8 +40,10 @@ func _physics_process(delta):
 			attack3_state(delta)
 		DASH:
 			dash_state(delta)
-		SPELL_CAST:
-			spell_cast_state(delta)
+		SPELL1_CAST:
+			spell1_cast_state(delta)
+		SPELL2_CAST:
+				spell2_cast_state(delta)
 	
 func move_state(delta):
 	#player movement 
@@ -79,8 +84,10 @@ func move_state(delta):
 		state = ATTACK2
 	elif Input.is_action_just_pressed("attack_3"):
 		state = ATTACK3
-	if Input.is_action_just_pressed("spell_cast"):
-		state = SPELL_CAST
+	if Input.is_action_just_pressed("spell1_cast"):
+		state = SPELL1_CAST
+	elif Input.is_action_just_pressed("spell2_cast"):
+		state = SPELL2_CAST
 	
 	if Input.is_action_just_pressed("dash"):
 		state = DASH
@@ -132,11 +139,18 @@ func attack3_animation_finished():
 	state = MOVE
 	
 #spell cast
-func spell_cast_state(delta):
+func spell1_cast_state(delta):
 	velocity = Vector2.ZERO
 	move()
 	animationState.travel("spell_cast")
+	$spell_1/AnimationPlayer.play("spell_1_firebird")
 
+func spell2_cast_state(delta):
+	velocity = Vector2.ZERO
+	move()
+	animationState.travel("spell2_cast")
+	$spell_2/AnimationPlayer.play("spell_2_explosion")
+	
 func spellCast_animation_finished():
 	state = MOVE
 
