@@ -9,6 +9,8 @@ var attack_mv_vector = Vector2.RIGHT
 var attack_mv_speed = 10
 var attack_combo = 3
 var flip = false
+var stats = PlayerStats
+
 enum{
 	MOVE,
 	ATTACK1,
@@ -20,13 +22,16 @@ enum{
 }
 var state = MOVE
 var velocity : Vector2 = Vector2.ZERO
+
 onready var animationState = $AnimationTree.get("parameters/playback")
+onready var hurtBox = $Hurtbox
 
 
 func _ready():
 	$Attack/attack_collision.disabled = true
 	$spell_1.visible = false
 	$spell_2.visible = false
+	stats.connect("no_health",self, "queue_free")
 
 func _physics_process(delta):
 	match state:
@@ -168,5 +173,8 @@ func _on_Timer_timeout():
 	state = MOVE
 	attack_combo = 3
 	$AttackResetTimer.stop()
-
-
+	
+func _on_Hurtbox_area_entered(area):
+	stats.health -= 1
+	hurtBox.start_invincibility(0.5)
+	hurtBox.create_hit_effect()

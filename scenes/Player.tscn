@@ -1,8 +1,11 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Assets/Animations/Player.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scenes/spell_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/spell_2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Overlap/Hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Overlap/Hitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player/PlayerStats.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=3]
@@ -783,6 +786,10 @@ graph_offset = Vector2( -195.789, -167.031 )
 [sub_resource type="RectangleShape2D" id=48]
 extents = Vector2( 4, 12.5 )
 
+[sub_resource type="CapsuleShape2D" id=57]
+radius = 6.0
+height = 16.0
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 3
 script = ExtResource( 13 )
@@ -817,18 +824,35 @@ wait_time = 0.3
 position = Vector2( 0, 4.5 )
 shape = SubResource( 48 )
 
-[node name="Attack" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 16
+[node name="Attack" parent="." instance=ExtResource( 5 )]
+collision_layer = 0
+collision_mask = 8
 
 [node name="attack_collision" type="CollisionPolygon2D" parent="Attack"]
 polygon = PoolVector2Array( 4, -12, 13, -11, 21, -4, 22, 5, 14, 15, 9, 17, -14, 15, -9, 10, 10, 10, 14, -2 )
 disabled = true
 
 [node name="spell_1" parent="." instance=ExtResource( 2 )]
+collision_layer = 3
+collision_mask = 16
 
 [node name="spell_2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -17 )
 scale = Vector2( 4, 3 )
+collision_layer = 3
+collision_mask = 16
+
+[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+collision_layer = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 57 )
+
+[node name="PlayerStats" parent="." instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="AttackResetTimer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="spell_1"]
+[editable path="Hurtbox"]
