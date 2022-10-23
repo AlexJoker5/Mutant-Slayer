@@ -779,7 +779,7 @@ states/walk/node = SubResource( 9 )
 states/walk/position = Vector2( 229, -80 )
 transitions = [ "Idle", "attack1", SubResource( 10 ), "attack1", "Idle", SubResource( 11 ), "dash", "Idle", SubResource( 18 ), "Idle", "dash", SubResource( 19 ), "Idle", "walk", SubResource( 24 ), "walk", "Idle", SubResource( 25 ), "attack1", "attack1.1", SubResource( 26 ), "attack1.1", "attack1.2", SubResource( 28 ), "attack1", "dash", SubResource( 34 ), "dash", "attack1", SubResource( 35 ), "attack1.1", "Idle", SubResource( 36 ), "attack1.2", "Idle", SubResource( 37 ), "Idle", "attack2", SubResource( 40 ), "attack2", "Idle", SubResource( 41 ), "Idle", "attack3", SubResource( 44 ), "attack3", "Idle", SubResource( 45 ), "Idle", "spell_cast", SubResource( 51 ), "spell_cast", "Idle", SubResource( 52 ), "Idle", "spell2_cast", SubResource( 55 ), "spell2_cast", "Idle", SubResource( 56 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -195.789, -167.031 )
+graph_offset = Vector2( -195.789, -302.32 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
@@ -821,10 +821,12 @@ parameters/playback = SubResource( 15 )
 wait_time = 0.3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, 4.5 )
 shape = SubResource( 48 )
 
 [node name="Attack" parent="." instance=ExtResource( 5 )]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -843,6 +845,7 @@ collision_layer = 3
 collision_mask = 16
 
 [node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

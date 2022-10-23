@@ -43,15 +43,15 @@ func _physics_process(delta):
 			if player != null:
 				var direction = (player.global_position - global_position).normalized()
 				velocity = velocity.move_toward(direction * MAX_SPEED, ACCELARATION * delta)
-			if !gnoll_flip and velocity.x > 0:
-				scale.x *= -1
-				gnoll_flip = false
-			elif gnoll_flip and velocity.x < 0:
-				scale.x *= -1
-				gnoll_flip = true
+			sprite.flip_h = velocity.x < 0
+			if stats.max_heath == 0 && velocity.x < 0:
+				GnottDeathEffect.instance().flip_h = false
+			elif stats.max_heath == 0 && velocity.x > 0:
+				GnottDeathEffect.instance().flip_h = true
 	if softCollision.is_colliding():
 		velocity += softCollision.get_push_vector() * delta * 200
 	velocity = move_and_slide(velocity)
+	
 
 func seek_player():
 	if playerDetectionZone.can_seek_player():
