@@ -26,5 +26,4 @@ z_index = 15
 frames = SubResource( 5 )
 animation = "Animate"
 frame = 1
-offset = Vector2( -12, 0 )
 script = ExtResource( 1 )

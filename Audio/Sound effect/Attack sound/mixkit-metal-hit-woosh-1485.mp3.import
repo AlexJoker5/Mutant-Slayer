@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-metal-hit-woosh-1485.mp3-69c885680279f9c1d4730f80d985a08d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Attack sound/mixkit-metal-hit-woosh-1485.mp3"
+dest_files=[ "res://.import/mixkit-metal-hit-woosh-1485.mp3-69c885680279f9c1d4730f80d985a08d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

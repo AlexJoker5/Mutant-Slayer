@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/Overlap/Hurtbox.gd" type="Script" id=1]
 
-[node name="Hurtbox" type="Area2D"]
+[node name="Hurtbox" type="Area2D" groups=["Gnoll_Hurtbox"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 1 )

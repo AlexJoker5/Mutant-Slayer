@@ -49,17 +49,16 @@ animations = [ {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "Animate",
-"speed": 6.0
+"speed": 5.0
 } ]
 
 [node name="GnottDeathEffect" type="AnimatedSprite"]
 frames = SubResource( 10 )
 animation = "Animate"
-frame = 1
 script = ExtResource( 2 )
 
 [node name="Shadow Sprite" type="Sprite" parent="."]
-position = Vector2( 12, 101 )
+position = Vector2( 2, 89 )
 scale = Vector2( 5, 4.5 )
 z_index = -5
 texture = ExtResource( 3 )

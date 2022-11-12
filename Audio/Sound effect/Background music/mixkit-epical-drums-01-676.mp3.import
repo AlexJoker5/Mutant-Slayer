@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-epical-drums-01-676.mp3-55b8910fd7b6bf38055bc31d1323634f.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Background music/mixkit-epical-drums-01-676.mp3"
+dest_files=[ "res://.import/mixkit-epical-drums-01-676.mp3-55b8910fd7b6bf38055bc31d1323634f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

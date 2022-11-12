@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-fire-swoosh-burning-1328.mp3-71a539fb74554c9f2bdfe8668ac3aaa7.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Spell_sound/mixkit-fire-swoosh-burning-1328.mp3"
+dest_files=[ "res://.import/mixkit-fire-swoosh-burning-1328.mp3-71a539fb74554c9f2bdfe8668ac3aaa7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

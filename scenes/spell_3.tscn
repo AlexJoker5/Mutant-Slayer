@@ -1,0 +1,454 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/end/burning_end_1.png" type="Texture" id=1]
+[ext_resource path="res://scripts/spell_3.gd" type="Script" id=2]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/loops/burning_loop_4.png" type="Texture" id=3]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/start/burning_start_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/end/burning_end_4.png" type="Texture" id=5]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/start/burning_start_4.png" type="Texture" id=6]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/loops/burning_loop_1.png" type="Texture" id=7]
+[ext_resource path="res://Audio/Sound effect/Spell_sound/fire-2.mp3" type="AudioStream" id=8]
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 21.0
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 120, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 168, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 24, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ null, null, SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 9.0
+} ]
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 40, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 50, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 40, 0, 10, 20 )
+
+[sub_resource type="SpriteFrames" id=23]
+animations = [ {
+"frames": [ null, null, SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[node name="spell_3" type="Area2D" groups=["spell_3"]]
+scale = Vector2( 2.5, 2.5 )
+collision_layer = 512
+collision_mask = 25
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
+
+[node name="right_side" type="Node2D" parent="."]
+
+[node name="fire_1" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 2, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 4
+playing = true
+
+[node name="fire_1_2" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 8, -18 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+playing = true
+
+[node name="fire_1_3" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 16, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 1
+playing = true
+
+[node name="fire_1_4" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 4, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 12
+playing = true
+
+[node name="fire_1_5" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 8, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 9
+playing = true
+
+[node name="fire_1_6" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 2, 6 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 3
+playing = true
+
+[node name="fire_1_7" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 18, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 10
+playing = true
+
+[node name="fire_1_8" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 4, 16 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 5
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 4, -14 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 13
+playing = true
+
+[node name="fire_2_2" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 10, -10 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 8
+playing = true
+
+[node name="fire_2_3" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 6, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 8
+playing = true
+
+[node name="fire_2_4" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 4, 2.38419e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 5
+playing = true
+
+[node name="fire_2_5" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 10, -4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 7
+playing = true
+
+[node name="fire_2_6" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 14, 2 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 1
+playing = true
+
+[node name="fire_2_7" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 12, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 4
+playing = true
+
+[node name="fire_2_8" type="AnimatedSprite" parent="right_side"]
+position = Vector2( 20, 9.53674e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 4
+playing = true
+
+[node name="left_side" type="Node2D" parent="." groups=["spell_3"]]
+scale = Vector2( -1, 1 )
+
+[node name="fire_1" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 2, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 14
+playing = true
+
+[node name="fire_1_2" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 8, -18 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 18
+playing = true
+
+[node name="fire_1_3" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 16, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 16
+playing = true
+
+[node name="fire_1_4" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 4, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 18
+playing = true
+
+[node name="fire_1_5" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 8, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 17
+playing = true
+
+[node name="fire_1_6" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 2, 6 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 10
+playing = true
+
+[node name="fire_1_7" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 18, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 18
+playing = true
+
+[node name="fire_1_8" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 4, 16 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 7 )
+animation = "New Anim"
+frame = 16
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 4, -14 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 4
+playing = true
+
+[node name="fire_2_2" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 10, -10 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 14
+playing = true
+
+[node name="fire_2_3" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 6, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 13
+playing = true
+
+[node name="fire_2_4" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 4, 2.38419e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 12
+playing = true
+
+[node name="fire_2_5" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 10, -4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 11
+playing = true
+
+[node name="fire_2_6" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 14, 2 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 9
+playing = true
+
+[node name="fire_2_7" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 12, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 9
+playing = true
+
+[node name="fire_2_8" type="AnimatedSprite" parent="left_side"]
+position = Vector2( 20, 9.53674e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 23 )
+frame = 10
+playing = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = 6.0
+autoplay = true
+attenuation = 6.49802
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-fast-sword-whoosh-2792.mp3-f02069f451f5c0ba40926b1e1017dbb1.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Attack sound/mixkit-fast-sword-whoosh-2792.mp3"
+dest_files=[ "res://.import/mixkit-fast-sword-whoosh-2792.mp3-f02069f451f5c0ba40926b1e1017dbb1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

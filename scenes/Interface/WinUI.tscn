@@ -1,0 +1,159 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/font/Urbanist-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Interface/Pause/Rectangle.png" type="Texture" id=2]
+[ext_resource path="res://assets/Interface/Pause/Rectangle-Click-Overlay.png" type="Texture" id=3]
+[ext_resource path="res://assets/Individual Sprites/Idle_1/adventurer-idle-03.png" type="Texture" id=4]
+[ext_resource path="res://assets/Individual Sprites/Idle_1/adventurer-idle-00.png" type="Texture" id=5]
+[ext_resource path="res://assets/Individual Sprites/Idle_1/adventurer-idle-01.png" type="Texture" id=6]
+[ext_resource path="res://assets/Individual Sprites/Idle_1/adventurer-idle-02.png" type="Texture" id=7]
+[ext_resource path="res://Audio/Sound effect/UI_sound/button-124476.mp3" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[node name="WinUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BlackOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 960.0
+margin_bottom = 500.0
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+margin_left = 260.222
+margin_top = -28.8889
+margin_right = 740.222
+margin_bottom = 221.111
+
+[node name="Label" type="Label" parent="Background/MarginContainer"]
+margin_top = 103.0
+margin_right = 480.0
+margin_bottom = 146.0
+custom_fonts/font = SubResource( 1 )
+text = "Congratulations!!"
+align = 1
+valign = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Background"]
+margin_left = 260.222
+margin_top = 4.11111
+margin_right = 740.222
+margin_bottom = 253.111
+
+[node name="Label" type="Label" parent="Background/MarginContainer2"]
+margin_top = 79.0
+margin_right = 480.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 1 )
+text = "
+You have passed level 1!"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="."]
+margin_left = 260.222
+margin_top = 143.111
+margin_right = 740.222
+margin_bottom = 393.111
+
+[node name="ButtonLayer" type="CanvasLayer" parent="Control"]
+layer = 101
+
+[node name="MainMenu" type="TextureButton" parent="Control/ButtonLayer"]
+margin_left = 43.0
+margin_top = 369.0
+margin_right = 227.0
+margin_bottom = 409.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+
+[node name="RestartLevel" type="TextureButton" parent="Control/ButtonLayer"]
+margin_left = 344.0
+margin_top = 369.0
+margin_right = 527.0
+margin_bottom = 409.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+
+[node name="NextLevel" type="TextureButton" parent="Control/ButtonLayer"]
+margin_left = 644.0
+margin_top = 369.0
+margin_right = 827.0
+margin_bottom = 409.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+
+[node name="TextLayer" type="CanvasLayer" parent="Control"]
+layer = 102
+
+[node name="MainMenu" type="Label" parent="Control/TextLayer"]
+margin_left = -60.556
+margin_top = 375.722
+margin_right = 419.444
+margin_bottom = 418.722
+custom_fonts/font = SubResource( 2 )
+text = "Main Menu"
+align = 1
+valign = 1
+
+[node name="RestartLevel" type="Label" parent="Control/TextLayer"]
+margin_left = 243.444
+margin_top = 375.722
+margin_right = 723.444
+margin_bottom = 418.722
+custom_fonts/font = SubResource( 3 )
+text = "Restart Level"
+align = 1
+valign = 1
+
+[node name="NextLevel" type="Label" parent="Control/TextLayer"]
+margin_left = 545.0
+margin_top = 376.0
+margin_right = 1024.0
+margin_bottom = 419.0
+custom_fonts/font = SubResource( 4 )
+text = "Next Level"
+align = 1
+valign = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 500, 270 )
+scale = Vector2( 3.5, 3.5 )
+frames = SubResource( 5 )
+animation = "Idle"
+playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0

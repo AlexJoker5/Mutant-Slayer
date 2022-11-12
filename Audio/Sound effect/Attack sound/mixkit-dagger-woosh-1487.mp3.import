@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-dagger-woosh-1487.mp3-3ea19a968b9a0378e77244922476a3aa.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Attack sound/mixkit-dagger-woosh-1487.mp3"
+dest_files=[ "res://.import/mixkit-dagger-woosh-1487.mp3-3ea19a968b9a0378e77244922476a3aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

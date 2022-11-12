@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-fire-explosion-1343.mp3-b510f53c347b4649e6c6591f9ae8793c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Spell_sound/mixkit-fire-explosion-1343.mp3"
+dest_files=[ "res://.import/mixkit-fire-explosion-1343.mp3-b510f53c347b4649e6c6591f9ae8793c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=1.0

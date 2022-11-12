@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/hp bar/hp-bar2.png" type="Texture" id=2]
+[ext_resource path="res://assets/hp bar/hp-bar3.png" type="Texture" id=3]
+[ext_resource path="res://assets/hp bar/hp-bar1.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Enemy/EnemyHealthBar.gd" type="Script" id=5]
+
+[node name="EnemyHealthBar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="hp_bar" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.05, 0.05 )
+max_value = 200.0
+value = 200.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+tint_progress = Color( 0.0980392, 0.933333, 0.172549, 1 )
+
+[node name="spell3Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true

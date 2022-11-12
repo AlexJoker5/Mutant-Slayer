@@ -1,11 +1,13 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Assets/Animations/Player.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://scenes/spell_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/spell_2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Overlap/Hurtbox.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Overlap/Hitbox.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Player/PlayerStats.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/Player_hurtBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player_Attack.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/Sound effect/mixkit-fighting-man-voice-2172.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Sound effect/Attack sound/mixkit-fast-sword-whoosh-2792.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Sound effect/Attack sound/male_hurt7-48124.mp3" type="AudioStream" id=8]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=3]
@@ -61,7 +63,7 @@ tracks/3/keys = {
 "values": [ Vector2( 4, 12.5 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_hurtBox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -69,8 +71,8 @@ tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -124,7 +126,7 @@ tracks/3/keys = {
 "values": [ Vector2( 4, 12.5 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -136,7 +138,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Attack/attack_collision:polygon")
+tracks/5/path = NodePath("AnimationPlayer:reset_on_save")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -145,7 +147,55 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Player_Attack/attack_collision:polygon")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
 "values": [ PoolVector2Array( 4, -12, 13, -11, 21, -4, 22, 5, 14, 15, 9, 17, -14, 15, -9, 10, 10, 10, 14, -2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Player_hurtBox:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Attack_Idl_sound:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Player_hurtBox/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -190,25 +240,25 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Attack/attack_collision:disabled")
+tracks/3/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1145, 0.275516 ),
+"times": PoolRealArray( 0, 0.106943, 0.158413 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:polygon")
+tracks/4/path = NodePath("Player_Attack/attack_collision:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.105799 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ PoolVector2Array( 4, -12, 13, -11, 21, -4, 22, 5, 14, 15, 9, 17, -14, 15, -9, 10, 10, 10, 14, -2 ) ]
@@ -257,28 +307,28 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Attack/attack_collision:polygon")
+tracks/3/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.200161, 0.260209 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -7, -6, 5, -14, 16, -14, 25, -5, 23, 7, 13, 16, 0, 16, 16, 2, 13, -6, -7, 1 ) ]
+"values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_Attack/attack_collision:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.205743, 0.304141 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.202449 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ PoolVector2Array( -6, 1, -7, -7, 8, -17, 23, -11, 26, 4, 16, 16, -2, 17, 4, 13, 13, 7, 13, -3 ) ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -323,28 +373,28 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Attack/attack_collision:polygon")
+tracks/3/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.0606202, 0.136681 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( 4, -19, 16, -16, 25, -5, 24, 6, 14, 17, -12, 18, -25, -1, -23, -17, -11, -19, -4, -20 ) ]
+"values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_Attack/attack_collision:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.0733517, 0.273727 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.0600483 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ PoolVector2Array( -1, -16, 12, -14, 24, -4, 25, 0, 23, 4, 15, 8, 0, 8, -12, 2, -22, -6, -23, -13 ) ]
 }
 
 [sub_resource type="Animation" id=38]
@@ -389,28 +439,28 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Attack/attack_collision:polygon")
+tracks/3/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.164704, 0.235046 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -7, -14, 7, -21, 19, -17, 27, -6, 23, 7, 14, 16, -1, 13, 7, 8, 12, -2, 8, -8 ) ]
+"values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_Attack/attack_collision:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.168172, 0.339923 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.164132 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ PoolVector2Array( -4, -16, 7, -20, 20, -17, 26, -4, 24, 4, 19, 12, 5, 15, -1, 12, 4, 8, 10, -4 ) ]
 }
 
 [sub_resource type="Animation" id=42]
@@ -455,28 +505,28 @@ tracks/2/keys = {
 } ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Attack/attack_collision:polygon")
+tracks/3/path = NodePath("Player_Attack/attack_collision:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.39975, 0.485534 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -6, -7, 12, -4, 29, 5, 29, 10, 9, 18, -14, 18, -23, 15, -29, 11, -19, 2, -11, -1 ) ]
+"values": [ true, false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Attack/attack_collision:disabled")
+tracks/4/path = NodePath("Player_Attack/attack_collision:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.411485, 0.678056 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.400894 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ PoolVector2Array( -6, -7, 19, 0, 28, 5, 25, 11, 18, 16, 1, 19, -12, 18, -24, 11, -22, 3, -14, -2 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -545,6 +595,76 @@ tracks/4/keys = {
 "values": [ Vector2( -3, 10 ) ]
 }
 
+[sub_resource type="Animation" id=62]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Hurt" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="Animation" id=58]
+resource_name = "player_death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Death" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_player_death"
+} ]
+}
+
 [sub_resource type="Animation" id=53]
 resource_name = "spell2_cast"
 length = 1.7
@@ -585,6 +705,18 @@ tracks/2/keys = {
 "args": [  ],
 "method": "spellCast_animation_finished"
 } ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Player_hurtBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -628,6 +760,18 @@ tracks/2/keys = {
 "method": "spellCast_animation_finished"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Player_hurtBox/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "walk"
@@ -669,6 +813,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 4, 4.5 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Player_hurtBox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 0 ) ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Idle"
@@ -690,6 +846,12 @@ animation = "attack3"
 
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "dash"
+
+[sub_resource type="AnimationNodeAnimation" id=63]
+animation = "hurt"
+
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "player_death"
 
 [sub_resource type="AnimationNodeAnimation" id=54]
 animation = "spell2_cast"
@@ -756,6 +918,16 @@ switch_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id=56]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=60]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=61]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=64]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=65]
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/Idle/node = SubResource( 7 )
 states/Idle/position = Vector2( 348, 55 )
@@ -770,16 +942,20 @@ states/attack2/position = Vector2( 625.211, 48.5675 )
 states/attack3/node = SubResource( 43 )
 states/attack3/position = Vector2( 625.211, 150.568 )
 states/dash/node = SubResource( 17 )
-states/dash/position = Vector2( 66.2105, 55 )
+states/dash/position = Vector2( 81.2105, 124 )
+states/hurt/node = SubResource( 63 )
+states/hurt/position = Vector2( 29.211, 42.969 )
+states/player_death/node = SubResource( 59 )
+states/player_death/position = Vector2( 96.211, -29.031 )
 states/spell2_cast/node = SubResource( 54 )
 states/spell2_cast/position = Vector2( 371.211, -118.031 )
 states/spell_cast/node = SubResource( 50 )
 states/spell_cast/position = Vector2( 588.211, -67.4325 )
 states/walk/node = SubResource( 9 )
 states/walk/position = Vector2( 229, -80 )
-transitions = [ "Idle", "attack1", SubResource( 10 ), "attack1", "Idle", SubResource( 11 ), "dash", "Idle", SubResource( 18 ), "Idle", "dash", SubResource( 19 ), "Idle", "walk", SubResource( 24 ), "walk", "Idle", SubResource( 25 ), "attack1", "attack1.1", SubResource( 26 ), "attack1.1", "attack1.2", SubResource( 28 ), "attack1", "dash", SubResource( 34 ), "dash", "attack1", SubResource( 35 ), "attack1.1", "Idle", SubResource( 36 ), "attack1.2", "Idle", SubResource( 37 ), "Idle", "attack2", SubResource( 40 ), "attack2", "Idle", SubResource( 41 ), "Idle", "attack3", SubResource( 44 ), "attack3", "Idle", SubResource( 45 ), "Idle", "spell_cast", SubResource( 51 ), "spell_cast", "Idle", SubResource( 52 ), "Idle", "spell2_cast", SubResource( 55 ), "spell2_cast", "Idle", SubResource( 56 ) ]
+transitions = [ "Idle", "attack1", SubResource( 10 ), "attack1", "Idle", SubResource( 11 ), "dash", "Idle", SubResource( 18 ), "Idle", "dash", SubResource( 19 ), "Idle", "walk", SubResource( 24 ), "walk", "Idle", SubResource( 25 ), "attack1", "attack1.1", SubResource( 26 ), "attack1.1", "attack1.2", SubResource( 28 ), "attack1", "dash", SubResource( 34 ), "dash", "attack1", SubResource( 35 ), "attack1.1", "Idle", SubResource( 36 ), "attack1.2", "Idle", SubResource( 37 ), "Idle", "attack2", SubResource( 40 ), "attack2", "Idle", SubResource( 41 ), "Idle", "attack3", SubResource( 44 ), "attack3", "Idle", SubResource( 45 ), "Idle", "spell_cast", SubResource( 51 ), "spell_cast", "Idle", SubResource( 52 ), "Idle", "spell2_cast", SubResource( 55 ), "spell2_cast", "Idle", SubResource( 56 ), "Idle", "player_death", SubResource( 60 ), "player_death", "Idle", SubResource( 61 ), "hurt", "Idle", SubResource( 64 ), "Idle", "hurt", SubResource( 65 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -195.789, -302.32 )
+graph_offset = Vector2( -202.789, -96.031 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=15]
 
@@ -787,18 +963,21 @@ graph_offset = Vector2( -195.789, -302.32 )
 extents = Vector2( 4, 12.5 )
 
 [sub_resource type="CapsuleShape2D" id=57]
-radius = 6.0
-height = 16.0
+radius = 5.0
+height = 14.0
 
 [node name="Player" type="KinematicBody2D"]
-collision_layer = 3
+collision_layer = 2
+collision_mask = 193
 script = ExtResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
 animation = "Idle"
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/Idle = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 anims/attack1 = SubResource( 5 )
@@ -807,6 +986,8 @@ anims/attack1.2 = SubResource( 21 )
 anims/attack2 = SubResource( 38 )
 anims/attack3 = SubResource( 42 )
 anims/dash = SubResource( 16 )
+anims/hurt = SubResource( 62 )
+anims/player_death = SubResource( 58 )
 anims/spell2_cast = SubResource( 53 )
 anims/spell_cast = SubResource( 49 )
 anims/walk = SubResource( 6 )
@@ -818,44 +999,57 @@ active = true
 parameters/playback = SubResource( 15 )
 
 [node name="AttackResetTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
+one_shot = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 4.5 )
 shape = SubResource( 48 )
 
-[node name="Attack" parent="." instance=ExtResource( 5 )]
+[node name="Player_Attack" parent="." instance=ExtResource( 5 )]
 visible = false
-collision_layer = 0
-collision_mask = 8
-
-[node name="attack_collision" type="CollisionPolygon2D" parent="Attack"]
-polygon = PoolVector2Array( 4, -12, 13, -11, 21, -4, 22, 5, 14, 15, 9, 17, -14, 15, -9, 10, 10, 10, 14, -2 )
-disabled = true
 
 [node name="spell_1" parent="." instance=ExtResource( 2 )]
-collision_layer = 3
-collision_mask = 16
 
 [node name="spell_2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -17 )
-scale = Vector2( 4, 3 )
-collision_layer = 3
-collision_mask = 16
+scale = Vector2( 5, 4 )
 
-[node name="Hurtbox" parent="." instance=ExtResource( 4 )]
+[node name="spell_3timer" type="Timer" parent="."]
+process_priority = 5
+wait_time = 6.0
+
+[node name="Player_hurtBox" parent="." instance=ExtResource( 4 )]
 visible = false
 collision_layer = 4
+collision_mask = 4160
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2( 0, 4 )
+[node name="CollisionShape2D" parent="Player_hurtBox" index="0"]
+position = Vector2( 0, 3 )
 shape = SubResource( 57 )
 
-[node name="PlayerStats" parent="." instance=ExtResource( 6 )]
+[node name="Attack_Idl_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
+[node name="Attack_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="Player_hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -5.0
+
+[node name="Player_slowed" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
 [connection signal="timeout" from="AttackResetTimer" to="." method="_on_Timer_timeout"]
-[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="timeout" from="spell_3timer" to="." method="_on_spell_3timer_timeout"]
+[connection signal="GnollBlue_slow" from="Player_hurtBox" to="." method="_on_Player_hurtBox_GnollBlue_slow"]
+[connection signal="Gnoll_knock_player" from="Player_hurtBox" to="." method="_on_Player_hurtBox_Gnoll_knock_player"]
+[connection signal="timeout" from="Player_slowed" to="." method="_on_Player_slowed_timeout"]
 
-[editable path="spell_1"]
-[editable path="Hurtbox"]
+[editable path="Player_Attack"]
+[editable path="Player_hurtBox"]

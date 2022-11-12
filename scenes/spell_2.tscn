@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Fire Effect 2/Explosion 2 SpriteSheet.png" type="Texture" id=1]
+[ext_resource path="res://Audio/Sound effect/Spell_sound/mixkit-fire-explosion-1343.mp3" type="AudioStream" id=2]
+[ext_resource path="res://scripts/spell_2.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -81,8 +83,11 @@ tracks/2/keys = {
 "values": [ true, false, true ]
 }
 
-[node name="spell_2" type="Area2D"]
+[node name="spell_2" type="Area2D" groups=["spell_2"]]
 z_index = 6
+collision_layer = 1024
+collision_mask = 25
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -95,3 +100,7 @@ anims/spell_2_explosion = SubResource( 3 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -17, -10, -5, -17, 7, -17, 19, -6, 24, 3, 20, 19, -17, 19, -22, 8, -21, -2 )
 disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -5.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-training-53.mp3-0c012d5b730cb8b6c7d4a4645647bcff.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Background music/mixkit-training-53.mp3"
+dest_files=[ "res://.import/mixkit-training-53.mp3-0c012d5b730cb8b6c7d4a4645647bcff.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-sword-blade-lashes-chainmail-armor-2776.mp3-5a73150508553469e42505a2a5bc443c.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Attack sound/mixkit-sword-blade-lashes-chainmail-armor-2776.mp3"
+dest_files=[ "res://.import/mixkit-sword-blade-lashes-chainmail-armor-2776.mp3-5a73150508553469e42505a2a5bc443c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

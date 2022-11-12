@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/male_hurt7-48124.mp3-87236e9a13d183ac1f80a29abc4cbdaa.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound effect/Attack sound/male_hurt7-48124.mp3"
+dest_files=[ "res://.import/male_hurt7-48124.mp3-87236e9a13d183ac1f80a29abc4cbdaa.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

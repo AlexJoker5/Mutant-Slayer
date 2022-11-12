@@ -1,0 +1,1046 @@
+[gd_scene load_steps=105 format=2]
+
+[ext_resource path="res://assets/background/sword_on_ground.png" type="Texture" id=1]
+[ext_resource path="res://assets/font/BelsaniscriptRegular-ywaDe.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Animations/Player.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/Keyboard/Keyboard Extras.png" type="Texture" id=4]
+[ext_resource path="res://assets/Keyboard/equals_PNG30.png" type="Texture" id=5]
+[ext_resource path="res://assets/Keyboard/Keyboard Letters and Symbols.png" type="Texture" id=6]
+[ext_resource path="res://assets/Fire Effect 2/Explosion 2 SpriteSheet.png" type="Texture" id=7]
+[ext_resource path="res://assets/Thunder Effect 01/Projectile 2/Projectile 2 wo blur.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Gameplay_menu.gd" type="Script" id=9]
+[ext_resource path="res://Audio/Sound effect/UI_sound/button-124476.mp3" type="AudioStream" id=10]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/end/burning_end_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/start/burning_start_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/loops/burning_loop_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/end/burning_end_4.png" type="Texture" id=14]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/start/burning_start_1.png" type="Texture" id=15]
+[ext_resource path="res://assets/fire_fx_v1.0/png/orange/loops/burning_loop_4.png" type="Texture" id=16]
+[ext_resource path="res://Audio/Sound effect/Background music/mixkit-training-53.mp3" type="AudioStream" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+extra_spacing_space = 4
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.333333 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 48, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 32, 64, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 64, 96, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 96, 64, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "a_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "d_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "s_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "space_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "w_key",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 48, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 16, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 32, 48, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 10 ) ],
+"loop": true,
+"name": "L_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "j_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ) ],
+"loop": true,
+"name": "k_key",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 96, 48, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 64, 64, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 14 ) ],
+"loop": true,
+"name": "i_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "o_key",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "u_key",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 384, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 432, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 480, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 528, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 576, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 624, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 672, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 720, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 384, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 432, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 480, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 528, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 576, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 624, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 672, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 720, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 768, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 816, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=52]
+animations = [ {
+"frames": [ SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ) ],
+"loop": true,
+"name": "spell_1",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
+"loop": true,
+"name": "spell_2",
+"speed": 7.0
+} ]
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 96, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 120, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 144, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 168, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 24, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 48, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 72, 0, 24, 32 )
+
+[sub_resource type="AtlasTexture" id=76]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 96, 0, 24, 32 )
+
+[sub_resource type="SpriteFrames" id=77]
+animations = [ {
+"frames": [ null, null, SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 9.0
+} ]
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 40, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 50, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 10, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 20, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 30, 0, 10, 20 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 40, 0, 10, 20 )
+
+[sub_resource type="SpriteFrames" id=88]
+animations = [ {
+"frames": [ null, null, SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="DynamicFont" id=69]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 2 )
+
+[node name="Gameplay_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 960.0
+margin_bottom = 500.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 71.0
+margin_right = 1095.0
+margin_bottom = 115.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_fonts/font = SubResource( 1 )
+text = "Game Play
+"
+align = 1
+valign = 1
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 41.0
+margin_top = 53.0
+margin_right = 503.0
+margin_bottom = 264.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Panel"]
+margin_right = 462.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+text = "Movement"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+margin_left = 1.0
+margin_top = 37.0
+margin_right = 463.0
+margin_bottom = 211.0
+
+[node name="w_key" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 120, 14 )
+scale = Vector2( 2.4375, 2.53125 )
+frames = SubResource( 9 )
+animation = "w_key"
+
+[node name="a_key" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 87, 47 )
+scale = Vector2( 2.4375, 2.53125 )
+frames = SubResource( 9 )
+animation = "a_key"
+
+[node name="s_key" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 120, 47 )
+scale = Vector2( 2.4375, 2.53125 )
+frames = SubResource( 9 )
+animation = "s_key"
+
+[node name="d_key" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 155, 47 )
+scale = Vector2( 2.4375, 2.53125 )
+frames = SubResource( 9 )
+animation = "d_key"
+
+[node name="space_key" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 120, 123 )
+scale = Vector2( 3.33594, 2.53125 )
+frames = SubResource( 9 )
+animation = "space_key"
+
+[node name="equal_to" type="Sprite" parent="Panel/MarginContainer"]
+position = Vector2( 239, 47 )
+scale = Vector2( 0.44, 0.255 )
+texture = ExtResource( 5 )
+
+[node name="equal_to2" type="Sprite" parent="Panel/MarginContainer"]
+position = Vector2( 239, 123 )
+scale = Vector2( 0.44, 0.255 )
+texture = ExtResource( 5 )
+
+[node name="idl" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 357, 35 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Walking"
+frame = 1
+playing = true
+
+[node name="dash" type="AnimatedSprite" parent="Panel/MarginContainer"]
+position = Vector2( 357, 111 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Dash"
+playing = true
+
+[node name="Panel2" type="Panel" parent="."]
+margin_left = 504.0
+margin_top = 53.0
+margin_right = 966.0
+margin_bottom = 264.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Panel2"]
+margin_right = 462.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+text = "Attack"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
+margin_top = 28.0
+margin_right = 462.0
+margin_bottom = 212.0
+
+[node name="j_key" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 64, 34 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 13 )
+animation = "j_key"
+
+[node name="k_key" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 64, 87 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 13 )
+animation = "k_key"
+
+[node name="L-key" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 64, 143 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 13 )
+animation = "L_key"
+
+[node name="equal_to" type="Sprite" parent="Panel2/MarginContainer"]
+position = Vector2( 128, 33 )
+scale = Vector2( 0.44, 0.255 )
+texture = ExtResource( 5 )
+
+[node name="equal_to2" type="Sprite" parent="Panel2/MarginContainer"]
+position = Vector2( 128, 87 )
+scale = Vector2( 0.44, 0.255 )
+texture = ExtResource( 5 )
+
+[node name="equal_to3" type="Sprite" parent="Panel2/MarginContainer"]
+position = Vector2( 128, 142 )
+scale = Vector2( 0.44, 0.255 )
+texture = ExtResource( 5 )
+
+[node name="attack_1" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 204, 21 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Attack_1"
+frame = 4
+playing = true
+
+[node name="attack_2" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 204, 79 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Attack_2"
+frame = 2
+playing = true
+
+[node name="attack_3" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 204, 135 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Attack_3"
+frame = 2
+playing = true
+
+[node name="attack_1_1" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 302, 21 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Attack_1.1"
+frame = 1
+playing = true
+
+[node name="attack_1_2" type="AnimatedSprite" parent="Panel2/MarginContainer"]
+position = Vector2( 400, 21 )
+scale = Vector2( 1.96, 1.72973 )
+frames = ExtResource( 3 )
+animation = "Attack_1.2"
+frame = 2
+playing = true
+
+[node name="Panel3" type="Panel" parent="."]
+margin_left = 51.0
+margin_top = 255.0
+margin_right = 1011.0
+margin_bottom = 518.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="Label" type="Label" parent="Panel3"]
+margin_right = 960.0
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 3 )
+text = "Spells"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel3"]
+margin_left = -1.0
+margin_top = 33.0
+margin_right = 961.0
+margin_bottom = 263.0
+
+[node name="U_key" type="AnimatedSprite" parent="Panel3/MarginContainer"]
+position = Vector2( 173, 32 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 17 )
+animation = "u_key"
+
+[node name="I_key" type="AnimatedSprite" parent="Panel3/MarginContainer"]
+position = Vector2( 486, 32 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 17 )
+animation = "i_key"
+
+[node name="o_key" type="AnimatedSprite" parent="Panel3/MarginContainer"]
+position = Vector2( 771, 32 )
+scale = Vector2( 2.437, 2.531 )
+frames = SubResource( 17 )
+animation = "o_key"
+
+[node name="spell_1" type="AnimatedSprite" parent="Panel3/MarginContainer"]
+position = Vector2( 175, 134 )
+scale = Vector2( 2.52083, 1.47917 )
+frames = SubResource( 52 )
+animation = "spell_1"
+frame = 6
+playing = true
+
+[node name="spell_2" type="AnimatedSprite" parent="Panel3/MarginContainer"]
+position = Vector2( 771.778, 132 )
+scale = Vector2( 3.25, 2.125 )
+frames = SubResource( 52 )
+animation = "spell_2"
+frame = 14
+playing = true
+
+[node name="spell_3" type="Node2D" parent="Panel3/MarginContainer"]
+position = Vector2( 486.667, 132 )
+scale = Vector2( 3, 3 )
+
+[node name="right_side" type="Node2D" parent="Panel3/MarginContainer/spell_3"]
+
+[node name="fire_1" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 2, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 16
+playing = true
+
+[node name="fire_1_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 8, -18 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 12
+playing = true
+
+[node name="fire_1_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 16, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 13
+playing = true
+
+[node name="fire_1_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 4, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 5
+playing = true
+
+[node name="fire_1_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 8, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 2
+playing = true
+
+[node name="fire_1_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 2, 6 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 15
+playing = true
+
+[node name="fire_1_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 18, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 3
+playing = true
+
+[node name="fire_1_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 4, 16 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 17
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 4, -14 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 11
+playing = true
+
+[node name="fire_2_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 10, -10 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 6
+playing = true
+
+[node name="fire_2_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 6, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 6
+playing = true
+
+[node name="fire_2_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 4, 2.38419e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 3
+playing = true
+
+[node name="fire_2_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 10, -4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 5
+playing = true
+
+[node name="fire_2_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 14, 2 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 16
+playing = true
+
+[node name="fire_2_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 12, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 2
+playing = true
+
+[node name="fire_2_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
+position = Vector2( 20, 9.53674e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 2
+playing = true
+
+[node name="left_side" type="Node2D" parent="Panel3/MarginContainer/spell_3" groups=["spell_3"]]
+scale = Vector2( -1, 1 )
+
+[node name="fire_1" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 2, -20 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 7
+playing = true
+
+[node name="fire_1_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 8, -18 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 11
+playing = true
+
+[node name="fire_1_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 16, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 9
+playing = true
+
+[node name="fire_1_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 4, -8 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 11
+playing = true
+
+[node name="fire_1_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 8, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 10
+playing = true
+
+[node name="fire_1_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 2, 6 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 3
+playing = true
+
+[node name="fire_1_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 18, 4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 11
+playing = true
+
+[node name="fire_1_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 4, 16 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 77 )
+animation = "New Anim"
+frame = 9
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 4, -14 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 2
+playing = true
+
+[node name="fire_2_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 10, -10 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 12
+playing = true
+
+[node name="fire_2_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 6, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 11
+playing = true
+
+[node name="fire_2_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 4, 2.38419e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 10
+playing = true
+
+[node name="fire_2_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 10, -4 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 9
+playing = true
+
+[node name="fire_2_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 14, 2 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 7
+playing = true
+
+[node name="fire_2_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 12, 12 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 7
+playing = true
+
+[node name="fire_2_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
+position = Vector2( 20, 9.53674e-07 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 88 )
+frame = 8
+playing = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 94.0
+margin_bottom = 40.0
+
+[node name="Button" type="Button" parent="MarginContainer"]
+margin_right = 94.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.12549, 1, 0, 1 )
+custom_fonts/font = SubResource( 69 )
+text = "Back"
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -25.0
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_back_Button_pressed"]
