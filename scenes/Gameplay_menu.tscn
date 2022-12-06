@@ -612,7 +612,7 @@ position = Vector2( 357, 35 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Walking"
-frame = 1
+frame = 4
 playing = true
 
 [node name="dash" type="AnimatedSprite" parent="Panel/MarginContainer"]
@@ -620,6 +620,7 @@ position = Vector2( 357, 111 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Dash"
+frame = 4
 playing = true
 
 [node name="Panel2" type="Panel" parent="."]
@@ -689,7 +690,7 @@ position = Vector2( 204, 79 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Attack_2"
-frame = 2
+frame = 1
 playing = true
 
 [node name="attack_3" type="AnimatedSprite" parent="Panel2/MarginContainer"]
@@ -697,7 +698,7 @@ position = Vector2( 204, 135 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Attack_3"
-frame = 2
+frame = 5
 playing = true
 
 [node name="attack_1_1" type="AnimatedSprite" parent="Panel2/MarginContainer"]
@@ -705,7 +706,7 @@ position = Vector2( 302, 21 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Attack_1.1"
-frame = 1
+frame = 2
 playing = true
 
 [node name="attack_1_2" type="AnimatedSprite" parent="Panel2/MarginContainer"]
@@ -713,7 +714,7 @@ position = Vector2( 400, 21 )
 scale = Vector2( 1.96, 1.72973 )
 frames = ExtResource( 3 )
 animation = "Attack_1.2"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Panel3" type="Panel" parent="."]
@@ -769,7 +770,7 @@ position = Vector2( 771.778, 132 )
 scale = Vector2( 3.25, 2.125 )
 frames = SubResource( 52 )
 animation = "spell_2"
-frame = 14
+frame = 8
 playing = true
 
 [node name="spell_3" type="Node2D" parent="Panel3/MarginContainer"]
@@ -783,7 +784,7 @@ position = Vector2( 2, -20 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 16
+frame = 1
 playing = true
 
 [node name="fire_1_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -791,7 +792,7 @@ position = Vector2( 8, -18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 12
+frame = 16
 playing = true
 
 [node name="fire_1_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -799,7 +800,7 @@ position = Vector2( 16, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 13
+frame = 17
 playing = true
 
 [node name="fire_1_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -807,7 +808,7 @@ position = Vector2( 4, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 5
+frame = 9
 playing = true
 
 [node name="fire_1_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -815,7 +816,7 @@ position = Vector2( 8, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 2
+frame = 6
 playing = true
 
 [node name="fire_1_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -823,7 +824,6 @@ position = Vector2( 2, 6 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 15
 playing = true
 
 [node name="fire_1_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -831,7 +831,7 @@ position = Vector2( 18, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 3
+frame = 7
 playing = true
 
 [node name="fire_1_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
@@ -839,63 +839,63 @@ position = Vector2( 4, 16 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 17
+frame = 2
 playing = true
 
 [node name="fire_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 4, -14 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 11
+frame = 1
 playing = true
 
 [node name="fire_2_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 10, -10 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 6
+frame = 13
 playing = true
 
 [node name="fire_2_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 6, 12 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 6
+frame = 13
 playing = true
 
 [node name="fire_2_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 4, 2.38419e-07 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="fire_2_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 10, -4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 5
+frame = 12
 playing = true
 
 [node name="fire_2_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 14, 2 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 16
+frame = 6
 playing = true
 
 [node name="fire_2_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 12, 12 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 2
+frame = 9
 playing = true
 
 [node name="fire_2_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/right_side"]
 position = Vector2( 20, 9.53674e-07 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 2
+frame = 9
 playing = true
 
 [node name="left_side" type="Node2D" parent="Panel3/MarginContainer/spell_3" groups=["spell_3"]]
@@ -906,7 +906,7 @@ position = Vector2( 2, -20 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 7
+frame = 11
 playing = true
 
 [node name="fire_1_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -914,7 +914,7 @@ position = Vector2( 8, -18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 11
+frame = 15
 playing = true
 
 [node name="fire_1_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -922,7 +922,7 @@ position = Vector2( 16, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 9
+frame = 13
 playing = true
 
 [node name="fire_1_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -930,7 +930,7 @@ position = Vector2( 4, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 11
+frame = 15
 playing = true
 
 [node name="fire_1_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -938,7 +938,7 @@ position = Vector2( 8, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 10
+frame = 14
 playing = true
 
 [node name="fire_1_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -946,7 +946,7 @@ position = Vector2( 2, 6 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 3
+frame = 7
 playing = true
 
 [node name="fire_1_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -954,7 +954,7 @@ position = Vector2( 18, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 11
+frame = 15
 playing = true
 
 [node name="fire_1_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
@@ -962,63 +962,62 @@ position = Vector2( 4, 16 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 77 )
 animation = "New Anim"
-frame = 9
+frame = 13
 playing = true
 
 [node name="fire_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 4, -14 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 2
+frame = 9
 playing = true
 
 [node name="fire_2_2" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 10, -10 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 12
+frame = 2
 playing = true
 
 [node name="fire_2_3" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 6, 12 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 11
+frame = 1
 playing = true
 
 [node name="fire_2_4" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 4, 2.38419e-07 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 10
 playing = true
 
 [node name="fire_2_5" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 10, -4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 9
+frame = 16
 playing = true
 
 [node name="fire_2_6" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 14, 2 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 7
+frame = 14
 playing = true
 
 [node name="fire_2_7" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 12, 12 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 7
+frame = 14
 playing = true
 
 [node name="fire_2_8" type="AnimatedSprite" parent="Panel3/MarginContainer/spell_3/left_side"]
 position = Vector2( 20, 9.53674e-07 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 88 )
-frame = 8
+frame = 15
 playing = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

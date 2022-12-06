@@ -60,6 +60,7 @@ func _physics_process(delta):
 		CHASE:
 			if $Gnoll_scream.playing == false:
 				$Gnoll_scream.play()
+				
 			if position.x < GlobalScript.Player_pos.x and !is_flip:
 				$Hitbox.scale.x *= -1
 				$Hurtbox.scale.x *= -1
@@ -168,7 +169,7 @@ func enemy_Celebrated():
 
 
 func _on_Hurtbox_player_knock_Gnoll(knock_value):
-	$Gnoll_scream.playing = false
+	$Gnoll_scream.playing = true
 	state = HURT
 	print("haa")
 	if position.x > GlobalScript.Player_pos.x:
@@ -177,7 +178,7 @@ func _on_Hurtbox_player_knock_Gnoll(knock_value):
 		velocity.x -= knock_value
 		
 func _hurt_animation_finished():
-	$Gnoll_scream.playing = true
+	$Gnoll_scream.playing = false
 	state = CHASE
 
 func _on_death_animation_finished():
@@ -200,9 +201,11 @@ func _on_death_animation_finished():
 func _on_Gnoll_scream_finished():
 	$Gnoll_scream.stop()
 	$Gnoll_scream/Timer.start()
-	$Gnoll_scream.playing = false
+	$Gnoll_scream.playing = true
+	print("stop")
 
 
 func _on_Gnoll_scream_Timer_timeout():
-	$Gnoll_scream.playing = true
+	$Gnoll_scream.playing = false
+	print("time_stop")
 

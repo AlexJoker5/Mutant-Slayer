@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/Shadows/MediumShadow.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Enemy/GemPosition.gd" type="Script" id=9]
 [ext_resource path="res://scenes/Enemy/EnemyHealthBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://EnemyAttack.tres" type="Animation" id=11]
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 4
@@ -188,58 +189,6 @@ animations = [ {
 "name": "Walk",
 "speed": 5.0
 } ]
-
-[sub_resource type="Animation" id=37]
-resource_name = "Attack"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Attack" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 1, 1.2, 1.5, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 8 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
 
 [sub_resource type="Animation" id=49]
 resource_name = "Death"
@@ -477,10 +426,10 @@ radius = 32.0
 height = 44.0
 
 [sub_resource type="RectangleShape2D" id=38]
-extents = Vector2( 88.1667, 25 )
+extents = Vector2( 116.667, 41.6667 )
 
 [sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 62.5, 18.3333 )
+extents = Vector2( 62.5, 41.6666 )
 
 [sub_resource type="CircleShape2D" id=9]
 radius = 24.0208
@@ -503,7 +452,7 @@ z_index = -5
 texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 37 )
+anims/Attack = ExtResource( 11 )
 anims/Death = SubResource( 49 )
 anims/Hurt = SubResource( 58 )
 anims/Idle = SubResource( 21 )
@@ -530,14 +479,13 @@ margin_right = -50.0001
 margin_bottom = -53.3333
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 4 )]
-visible = false
 collision_layer = 16
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 1, 1, 1, 0.321569 )
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 26.6667, 36.6667 )
+position = Vector2( -3.49681e-05, 31.6667 )
 shape = SubResource( 38 )
 
 [node name="Hitbox" parent="." groups=["Gnoll_hitBox"] instance=ExtResource( 7 )]
@@ -545,7 +493,7 @@ collision_layer = 4096
 collision_mask = 6
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2( 54.1667, 55 )
+position = Vector2( 54.1667, 31.6666 )
 shape = SubResource( 22 )
 disabled = true
 
@@ -562,10 +510,11 @@ script = ExtResource( 9 )
 
 [node name="Gnoll_scream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = -15.0
+volume_db = -30.0
 attenuation = 9.51365
 
 [node name="Timer" type="Timer" parent="Gnoll_scream"]
+wait_time = 10.0
 one_shot = true
 
 [connection signal="hit_by_attack" from="." to="EnemyHealthBar" method="_on_Gnoll_hit_by_attack"]

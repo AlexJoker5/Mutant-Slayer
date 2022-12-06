@@ -43,3 +43,9 @@ func _on_RestartLevel_pressed():
 	yield(get_tree().create_timer(0.2),"timeout")
 	get_tree().paused = !get_tree().paused
 	get_tree().reload_current_scene()
+
+
+func _on_Level_1_lose_screen():
+	set_process(false)
+	set_visible(!get_tree().paused)
+	get_tree().paused = !get_tree().paused

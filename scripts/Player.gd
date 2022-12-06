@@ -10,6 +10,7 @@ var attack_mv_speed = 10
 var attack_combo = 3
 var attack_combo_reset = false
 var flip = false
+var spell1_going = false
 var spell1_On_cd = false
 var spell2_On_cd = false
 var spell3_On_cd = false
@@ -118,6 +119,7 @@ func move_state(delta):
 		state = ATTACK3
 	if Input.is_action_just_pressed("spell1_cast") and !spell1_On_cd:
 		if GlobalScript.player_mana >= GlobalScript.spell1_mana:
+			spell1_going = true
 			state = SPELL1_CAST
 			spell1_On_cd = true
 			GlobalScript.emit_signal("spell_1_used")
@@ -139,7 +141,12 @@ func move_state(delta):
 			print("not enough mana 2")
 	
 	if Input.is_action_just_pressed("dash"):
-		state = DASH
+		if GlobalScript.player_energy >= 40:
+			GlobalScript.emit_signal("dash",GlobalScript.dash_energy)
+			state = DASH
+		else:
+			state = MOVE
+		
 	if GlobalScript.player_health <= 0:
 		state = DEATH
 	
@@ -161,11 +168,13 @@ func attack1_state(delta):
 		animationState.travel("attack1.1")
 	elif attack_combo == 1 and Input.is_action_just_pressed("attack_1"):
 		$AttackResetTimer.start()
-		$Attack_Idl_sound.play()
 		$Attack_sound.play()
 		
 		animationState.travel("attack1.2")
-		
+
+func attack_sound():
+	$Attack_Idl_sound.play()
+
 func attack1_animation_finished():
 	if attack_combo_reset:
 		attack_combo = 3
@@ -205,13 +214,25 @@ func attack3_animation_finished():
 	state = MOVE
 
 #spell cast
+
 func spell1_cast_state(delta):
 	velocity = Vector2.ZERO
 	move()
 	if $spell_1/AudioStreamPlayer2D.playing == false:
 		$spell_1/AudioStreamPlayer2D.play()
 	animationState.travel("spell_cast")
-	$spell_1/AnimationPlayer.play("spell_1_firebird")
+	if Input.is_action_pressed("ui_up"):
+		if spell1_going:
+			$spell_1/AnimationPlayer.play("spell_1_firebird_up")
+			spell1_going = false
+	elif Input.is_action_pressed("ui_down"):
+		if spell1_going:
+			$spell_1/AnimationPlayer.play("spell_1_firebird_down")
+			spell1_going = false
+	else:
+		if spell1_going:
+			$spell_1/AnimationPlayer.play("spell_1_firebird")
+			spell1_going = false
 
 func spell2_cast_state(delta):
 	velocity = Vector2.ZERO
@@ -313,11 +334,11 @@ func _on_Player_hurtBox_Gnoll_knock_player():
 
 func _on_Player_hurtBox_GnollBlue_slow(value):
 	speed = value
-	modulate = Color(0.270588, 0.482353, 0.886275)
+	$AnimatedSprite.modulate = Color(0.270588, 0.482353, 0.886275)
 	$Player_slowed.start()
 
 
 func _on_Player_slowed_timeout():
 	speed = GlobalScript.player_speed
-	modulate = Color(1,1,1)
+	$AnimatedSprite.modulate = Color(1,1,1)
 	$Player_slowed.stop()

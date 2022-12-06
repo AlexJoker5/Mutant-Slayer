@@ -33,7 +33,7 @@ func _on_Player_hurtBox_area_entered(area):
 	elif area.is_in_group("Gnollblue_hitbox"):
 		GlobalScript.emit_signal("Gnollhit_player",GlobalScript.GnollBlue_dm)
 		emit_signal("Gnoll_knock_player")
-		emit_signal("GnollBlue_slow",GlobalScript.player_speed*0.6)
+		emit_signal("GnollBlue_slow",GlobalScript.player_speed*0.5)
 		main.add_child(effect_instance)
 		effect_instance.global_position = global_position
 	elif area.is_in_group("HealthGem"):

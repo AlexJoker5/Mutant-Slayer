@@ -1,5 +1,7 @@
 extends Area2D
 
+func _ready():
+	$CollisionShape2D.disabled = false
 
 func _on_ManaGem_body_entered(body):
 	print("Before Bounce")

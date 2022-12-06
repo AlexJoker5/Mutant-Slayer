@@ -365,9 +365,12 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "attack_sound"
+}, {
 "args": [  ],
 "method": "attack1_2_animation_finished"
 } ]
@@ -1009,6 +1012,10 @@ shape = SubResource( 48 )
 
 [node name="Player_Attack" parent="." instance=ExtResource( 5 )]
 visible = false
+
+[node name="attack_collision" parent="Player_Attack" index="0"]
+polygon = PoolVector2Array( -1, -16, 12, -14, 24, -4, 25, 0, 23, 4, 15, 8, 0, 8, -12, 2, -22, -6, -23, -13 )
+disabled = false
 
 [node name="spell_1" parent="." instance=ExtResource( 2 )]
 

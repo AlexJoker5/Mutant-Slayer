@@ -12,14 +12,11 @@ config_version=4
 
 config/name="Mutant-Slayer"
 run/main_scene="res://scenes/WelcomeMenu.tscn"
-config/icon="res://icon.png"
+config/use_custom_user_dir=true
+config/icon="res://assets/Individual Sprites/Idle_1/adventurer-idle-00.png"
 
 [autoload]
 
-PluginSettings="res://addons/github-integration/scripts/PluginSettings.gd"
-IconLoaderGithub="res://addons/github-integration/scripts/IconLoaderGithub.gd"
-UserData="res://addons/github-integration/scripts/user_data.gd"
-RestHandler="res://addons/github-integration/scenes/RestHandler.tscn"
 GlobalScript="*res://scripts/global_script.gd"
 
 [display]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/background/explosion.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/font/Silver.ttf" type="DynamicFontData" id=2]
@@ -25,6 +25,18 @@ size = 14
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="Cooldown" type="Control"]
@@ -75,6 +87,26 @@ valign = 1
 [node name="Timer" type="Timer" parent="spell_1"]
 one_shot = true
 
+[node name="Label2" type="Label" parent="spell_1"]
+margin_left = 40.0
+margin_right = 54.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "U"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="spell_1"]
+self_modulate = Color( 0.207843, 0.141176, 1, 1 )
+margin_left = 1.04056
+margin_top = 37.3243
+margin_right = 20.0406
+margin_bottom = 61.3243
+custom_fonts/font = SubResource( 4 )
+text = "80"
+align = 1
+valign = 1
+
 [node name="spell_2" type="Panel" parent="."]
 margin_left = 3.0
 margin_top = 73.0
@@ -115,6 +147,26 @@ valign = 1
 [node name="Timer" type="Timer" parent="spell_2"]
 one_shot = true
 
+[node name="Label2" type="Label" parent="spell_2"]
+margin_left = 40.0
+margin_right = 54.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "I"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="spell_2"]
+self_modulate = Color( 0.207843, 0.141176, 1, 1 )
+margin_left = 1.04056
+margin_top = 37.3243
+margin_right = 20.0406
+margin_bottom = 61.3243
+custom_fonts/font = SubResource( 4 )
+text = "125"
+align = 1
+valign = 1
+
 [node name="spell_3" type="Panel" parent="."]
 margin_left = 3.0
 margin_top = 146.0
@@ -154,6 +206,26 @@ valign = 1
 
 [node name="Timer" type="Timer" parent="spell_3"]
 one_shot = true
+
+[node name="Label2" type="Label" parent="spell_3"]
+margin_left = 40.0
+margin_right = 54.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 3 )
+text = "O"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="spell_3"]
+self_modulate = Color( 0.207843, 0.141176, 1, 1 )
+margin_left = 1.04056
+margin_top = 37.3243
+margin_right = 20.0406
+margin_bottom = 61.3243
+custom_fonts/font = SubResource( 4 )
+text = "235"
+align = 1
+valign = 1
 
 [connection signal="timeout" from="spell_1/Timer" to="spell_1" method="_on_Timer_timeout"]
 [connection signal="timeout" from="spell_2/Timer" to="spell_2" method="_on_Timer_timeout"]

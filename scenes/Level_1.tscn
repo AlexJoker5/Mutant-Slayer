@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Treetile/main.tres" type="TileSet" id=2]
@@ -22,6 +22,10 @@
 [ext_resource path="res://scripts/LosUILayer.gd" type="Script" id=20]
 [ext_resource path="res://scenes/Enemy/Gnoll_red.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/Enemy/Gnoll_blue.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/Energy_bar.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/Interface/Countdown.tscn" type="PackedScene" id=24]
+[ext_resource path="res://assets/font/Urbanist-Regular.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://scripts/Camera_shake.gd" type="Script" id=26]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -500,284 +504,9 @@ points = PoolVector2Array( 0, 0, 30, 0, 30, 30, 0, 30 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=29]
 
-[sub_resource type="Animation" id=34]
-resource_name = "Attack"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Attack" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 1, 1.2, 1.5, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 8 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1, 1.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=35]
-resource_name = "Death"
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Death" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.0203761, 0.112226, 0.218496, 0.461285, 0.607836, 0.740595, 0.816144, 0.88558 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 4, 6, 5, 7, 8, 9 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "_on_death_animation_finished"
-} ]
-}
-
-[sub_resource type="Animation" id=36]
-resource_name = "Hurt"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Hurt" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2 ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "_hurt_animation_finished"
-} ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="Animation" id=37]
-resource_name = "Idle"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "IDLE" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.00122592, 0.200523, 0.401226, 0.594559, 0.783347 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AnimatedSprite:flip_h")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-
-[sub_resource type="Animation" id=38]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ "Walk" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AnimatedSprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=39]
-resource_name = "Walk"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("AnimatedSprite:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ "Walk" ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.269469 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 1, 2 ]
-}
+[sub_resource type="DynamicFont" id=40]
+size = 30
+font_data = ExtResource( 25 )
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 14 )
@@ -871,7 +600,7 @@ scale = Vector2( 1.2, 1.2 )
 collision_mask = 17
 
 [node name="AnimatedSprite" parent="Player" index="0"]
-frame = 0
+frame = 2
 
 [node name="AnimationTree" parent="Player" index="2"]
 parameters/playback = SubResource( 29 )
@@ -886,6 +615,7 @@ limit_bottom = 610
 limit_smoothed = true
 smoothing_enabled = true
 editor_draw_limits = true
+script = ExtResource( 26 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 pause_mode = 1
@@ -907,6 +637,13 @@ margin_top = 44.0
 margin_right = -37.0
 margin_bottom = 4.0
 rect_scale = Vector2( 3, 1.5 )
+
+[node name="Energy_bar" parent="HUD/bar" instance=ExtResource( 23 )]
+margin_left = 2.0
+margin_top = 63.0
+margin_right = 2.0
+margin_bottom = 63.0
+rect_scale = Vector2( 3, 0.5 )
 
 [node name="Cooldown" parent="HUD" instance=ExtResource( 10 )]
 margin_left = 887.928
@@ -996,28 +733,106 @@ position = Vector2( 2673.84, 253.223 )
 position = Vector2( 2615.47, 102.813 )
 
 [node name="Gnoll27" parent="enemy" instance=ExtResource( 7 )]
-position = Vector2( 1185.22, -171.808 )
-scale = Vector2( 0.6, 0.6 )
+position = Vector2( 1200, -300 )
 
-[node name="AnimatedSprite" parent="enemy/Gnoll27" index="0"]
-modulate = Color( 1, 0, 0, 1 )
+[node name="Gnoll28" parent="enemy" instance=ExtResource( 7 )]
+position = Vector2( 1100, -500 )
 
-[node name="AnimationPlayer" parent="enemy/Gnoll27" index="1"]
-anims/Attack = SubResource( 34 )
-anims/Death = SubResource( 35 )
-anims/Hurt = SubResource( 36 )
-anims/Idle = SubResource( 37 )
-anims/RESET = SubResource( 38 )
-anims/Walk = SubResource( 39 )
+[node name="Gnoll29" parent="enemy" instance=ExtResource( 7 )]
+position = Vector2( 1000, -350 )
 
-[node name="hp_bar" parent="enemy/Gnoll27/EnemyHealthBar" index="0"]
-max_value = 1000.0
-value = 1000.0
-
-[node name="Gnoll_boss" parent="enemy" instance=ExtResource( 21 )]
+[node name="Gnoll30" parent="enemy" instance=ExtResource( 7 )]
+position = Vector2( 800, -200 )
 
 [node name="Gnoll_blue" parent="enemy" instance=ExtResource( 22 )]
-position = Vector2( 0, 66 )
+position = Vector2( -200, 0 )
+
+[node name="Gnoll_blue2" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( -190, 500 )
+
+[node name="Gnoll_blue3" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( -230, 200 )
+
+[node name="Gnoll_blue4" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( -260, 350 )
+
+[node name="Gnoll_blue5" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( -300, 250 )
+
+[node name="Gnoll_blue6" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 500, -200 )
+
+[node name="Gnoll_blue7" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 700, -300 )
+
+[node name="Gnoll_blue8" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 1500, -400 )
+
+[node name="Gnoll_blue9" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 1000, -320 )
+
+[node name="Gnoll_blue10" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 1200, -100 )
+
+[node name="Gnoll_blue11" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 2400, 0 )
+
+[node name="Gnoll_blue12" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 2400, 300 )
+
+[node name="Gnoll_blue13" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 2500, 600 )
+
+[node name="Gnoll_blue14" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 2300, 200 )
+
+[node name="Gnoll_blue15" parent="enemy" instance=ExtResource( 22 )]
+position = Vector2( 2400, 600 )
+
+[node name="Gnoll_red" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( -152, 226 )
+
+[node name="Gnoll_red2" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( -182, 226 )
+
+[node name="Gnoll_red3" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( -212, 226 )
+
+[node name="Gnoll_red4" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( -242, 226 )
+
+[node name="Gnoll_red5" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( -272, 226 )
+
+[node name="Gnoll_red6" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 840, -200 )
+
+[node name="Gnoll_red7" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 840, -240 )
+
+[node name="Gnoll_red8" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 840, -280 )
+
+[node name="Gnoll_red9" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 840, -320 )
+
+[node name="Gnoll_red10" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 840, -360 )
+
+[node name="Gnoll_red11" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 2350, 200 )
+
+[node name="Gnoll_red12" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 2380, 200 )
+
+[node name="Gnoll_red13" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 2410, 200 )
+
+[node name="Gnoll_red14" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 2440, 200 )
+
+[node name="Gnoll_red15" parent="enemy" instance=ExtResource( 21 )]
+position = Vector2( 2470, 200 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 1
@@ -1041,6 +856,9 @@ script = ExtResource( 18 )
 
 [node name="WinUI" parent="WinLayer" instance=ExtResource( 17 )]
 
+[node name="AnimatedSprite" parent="WinLayer/WinUI" index="3"]
+frame = 1
+
 [node name="LoseLayer" type="CanvasLayer" parent="."]
 pause_mode = 2
 visible = false
@@ -1048,29 +866,33 @@ script = ExtResource( 20 )
 
 [node name="LoseUI" parent="LoseLayer" instance=ExtResource( 19 )]
 
+[node name="CountdownLayer" type="CanvasLayer" parent="."]
+
+[node name="Countdown" parent="CountdownLayer" instance=ExtResource( 24 )]
+margin_left = 830.0
+custom_fonts/normal_font = SubResource( 40 )
+minutes = 3
+
+[connection signal="lose_screen" from="." to="LoseLayer" method="_on_Level_1_lose_screen"]
 [connection signal="win_screen" from="." to="WinLayer" method="_on_Level_1_win_screen"]
 [connection signal="area_entered" from="Player/Player_hurtBox" to="Player/Player_hurtBox" method="_on_Player_hurtBox_area_entered"]
 [connection signal="pressed" from="PauseLayer/Pause/Control/ButtonLayer/Resume" to="PauseLayer" method="_on_Resume_pressed"]
 [connection signal="pressed" from="PauseLayer/Pause/Control/ButtonLayer/RestartLevel" to="PauseLayer" method="_on_RestartLevel_pressed"]
 [connection signal="pressed" from="PauseLayer/Pause/Control/ButtonLayer/MainMenu" to="PauseLayer" method="_on_MainMenu_pressed"]
-[connection signal="pressed" from="WinLayer/WinUI/Control/ButtonLayer/MainMenu" to="WinLayer" method="_on_MainMenu_pressed"]
-[connection signal="pressed" from="WinLayer/WinUI/Control/ButtonLayer/RestartLevel" to="WinLayer" method="_on_RestartLevel_pressed"]
-[connection signal="pressed" from="WinLayer/WinUI/Control/ButtonLayer/NextLevel" to="WinLayer" method="_on_NextLevel_pressed"]
+[connection signal="pressed" from="WinLayer/WinUI/Buttons/ButtonLayer/MainMenu" to="WinLayer" method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="WinLayer/WinUI/Buttons/ButtonLayer/RestartLevel" to="WinLayer" method="_on_RestartLevel_pressed"]
+[connection signal="pressed" from="WinLayer/WinUI/Buttons/ButtonLayer/NextLevel" to="WinLayer" method="_on_NextLevel_pressed"]
 [connection signal="pressed" from="LoseLayer/LoseUI/Control/ButtonLayer/MainMenu" to="LoseLayer" method="_on_MainMenu_pressed"]
 [connection signal="pressed" from="LoseLayer/LoseUI/Control/ButtonLayer/LevelMenu" to="LoseLayer" method="_on_LevelMenu_pressed"]
 [connection signal="pressed" from="LoseLayer/LoseUI/Control/ButtonLayer/RestartLevel" to="LoseLayer" method="_on_RestartLevel_pressed"]
+[connection signal="timeout" from="CountdownLayer/Countdown/CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
 
 [editable path="Player"]
 [editable path="Player/Player_Attack"]
 [editable path="Player/spell_1"]
 [editable path="Player/Player_hurtBox"]
 [editable path="HUD/Cooldown"]
-[editable path="enemy/Gnoll27"]
-[editable path="enemy/Gnoll27/Hurtbox"]
-[editable path="enemy/Gnoll27/EnemyHealthBar"]
-[editable path="enemy/Gnoll27/PlayerDetectionZone"]
-[editable path="enemy/Gnoll27/Hitbox"]
-[editable path="enemy/Gnoll27/SoftCollision"]
 [editable path="PauseLayer/Pause"]
 [editable path="WinLayer/WinUI"]
 [editable path="LoseLayer/LoseUI"]
+[editable path="CountdownLayer/Countdown"]

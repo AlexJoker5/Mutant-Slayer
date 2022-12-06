@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/background/level_background.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/fire_fx_v1.0/png/orange/loops/burning_loop_1.png" type="Texture" id=2]
@@ -93,6 +93,68 @@ tracks/0/keys = {
 "values": [ Color( 0, 0.521569, 0, 1 ), Color( 0, 1, 0, 1 ) ]
 }
 
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("green_dot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "glowing_greenDot"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("green_dot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.521569, 0, 1 ), Color( 0, 1, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("green_dot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "glowing_greenDot"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("green_dot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.521569, 0, 1 ), Color( 0, 1, 0, 1 ) ]
+}
+
 [sub_resource type="DynamicFont" id=4]
 size = 27
 outline_size = 1
@@ -135,7 +197,6 @@ position = Vector2( 3, 36 )
 scale = Vector2( 1, 1.2 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 3
 playing = true
 
 [node name="fire_9" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -143,7 +204,7 @@ position = Vector2( 78, 35 )
 scale = Vector2( 1, 1.2 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 2
+frame = 7
 playing = true
 
 [node name="fire_1" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -151,6 +212,7 @@ position = Vector2( 6, 41 )
 scale = Vector2( 1, 1.2 )
 frames = SubResource( 12 )
 animation = "fire_1"
+frame = 5
 playing = true
 
 [node name="fire_2" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -158,7 +220,7 @@ position = Vector2( 75, 41 )
 scale = Vector2( 1, 1.2 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 4
+frame = 1
 playing = true
 
 [node name="fire_3" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -166,6 +228,7 @@ position = Vector2( 17, 54 )
 scale = Vector2( 1, 0.568751 )
 frames = SubResource( 12 )
 animation = "fire_1"
+frame = 5
 playing = true
 
 [node name="fire_4" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -173,6 +236,7 @@ position = Vector2( 28, 55 )
 scale = Vector2( 1, 0.568751 )
 frames = SubResource( 12 )
 animation = "fire_1"
+frame = 5
 playing = true
 
 [node name="fire_5" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -180,7 +244,7 @@ position = Vector2( 41, 55 )
 scale = Vector2( 1, 0.568751 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 5
+frame = 2
 playing = true
 
 [node name="fire_6" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -188,7 +252,7 @@ position = Vector2( 54, 55 )
 scale = Vector2( 1, 0.568751 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 2
+frame = 7
 playing = true
 
 [node name="fire_7" type="AnimatedSprite" parent="Lvl_1_container/Lvl1_button"]
@@ -196,7 +260,7 @@ position = Vector2( 66, 53 )
 scale = Vector2( 1, 0.568751 )
 frames = SubResource( 12 )
 animation = "fire_1"
-frame = 4
+frame = 1
 playing = true
 
 [node name="green_dot" type="TextureRect" parent="Lvl_1_container/Lvl1_button"]
@@ -216,6 +280,219 @@ expand = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Lvl_1_container/Lvl1_button"]
 anims/RESET = SubResource( 2 )
 anims/glowing_greenDot = SubResource( 3 )
+
+[node name="Lvl_2_container" type="MarginContainer" parent="."]
+visible = false
+margin_left = 210.0
+margin_top = 245.0
+margin_right = 296.0
+margin_bottom = 311.0
+
+[node name="Lvl2_button" type="Button" parent="Lvl_2_container"]
+margin_right = 90.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.172549, 0.0901961, 0.00784314, 1 )
+custom_colors/font_color_hover = Color( 0.156863, 0.980392, 0.0392157, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Level-2"
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="fire_8" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 3, 36 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+playing = true
+
+[node name="fire_9" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 78, 35 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 7
+playing = true
+
+[node name="fire_1" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 6, 41 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 5
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 75, 41 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 1
+playing = true
+
+[node name="fire_3" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 17, 54 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 5
+playing = true
+
+[node name="fire_4" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 28, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 5
+playing = true
+
+[node name="fire_5" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 41, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 2
+playing = true
+
+[node name="fire_6" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 54, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 7
+playing = true
+
+[node name="fire_7" type="AnimatedSprite" parent="Lvl_2_container/Lvl2_button"]
+position = Vector2( 66, 53 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 1
+playing = true
+
+[node name="green_dot" type="TextureRect" parent="Lvl_2_container/Lvl2_button"]
+modulate = Color( 0, 1, 0, 1 )
+show_behind_parent = true
+anchor_left = 0.432
+anchor_top = 0.419
+anchor_right = 0.432
+anchor_bottom = 0.419
+margin_left = -0.152
+margin_top = 0.346001
+margin_right = 6.848
+margin_bottom = 5.346
+texture = ExtResource( 3 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lvl_2_container/Lvl2_button"]
+anims/RESET = SubResource( 21 )
+anims/glowing_greenDot = SubResource( 22 )
+
+[node name="Lvl_3_container" type="MarginContainer" parent="."]
+visible = false
+margin_left = 402.0
+margin_top = 237.0
+margin_right = 492.0
+margin_bottom = 303.0
+
+[node name="Lvl3_button" type="Button" parent="Lvl_3_container"]
+margin_right = 90.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.172549, 0.0901961, 0.00784314, 1 )
+custom_colors/font_color_hover = Color( 0.156863, 0.980392, 0.0392157, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Level-3"
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="fire_8" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 3, 36 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 7
+playing = true
+
+[node name="fire_9" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 78, 35 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 6
+playing = true
+
+[node name="fire_1" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 6, 41 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 4
+playing = true
+
+[node name="fire_2" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 75, 41 )
+scale = Vector2( 1, 1.2 )
+frames = SubResource( 12 )
+animation = "fire_1"
+playing = true
+
+[node name="fire_3" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 17, 54 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 4
+playing = true
+
+[node name="fire_4" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 28, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 4
+playing = true
+
+[node name="fire_5" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 41, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 1
+playing = true
+
+[node name="fire_6" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 54, 55 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+frame = 6
+playing = true
+
+[node name="fire_7" type="AnimatedSprite" parent="Lvl_3_container/Lvl3_button"]
+position = Vector2( 66, 53 )
+scale = Vector2( 1, 0.568751 )
+frames = SubResource( 12 )
+animation = "fire_1"
+playing = true
+
+[node name="green_dot" type="TextureRect" parent="Lvl_3_container/Lvl3_button"]
+modulate = Color( 0, 1, 0, 1 )
+show_behind_parent = true
+anchor_left = 0.432
+anchor_top = 0.419
+anchor_right = 0.432
+anchor_bottom = 0.419
+margin_left = -0.152
+margin_top = 0.346001
+margin_right = 6.848
+margin_bottom = 5.346
+texture = ExtResource( 3 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lvl_3_container/Lvl3_button"]
+anims/RESET = SubResource( 23 )
+anims/glowing_greenDot = SubResource( 24 )
 
 [node name="Back_button_container" type="MarginContainer" parent="."]
 margin_right = 135.0
@@ -241,4 +518,6 @@ stream = ExtResource( 7 )
 volume_db = -10.0
 
 [connection signal="pressed" from="Lvl_1_container/Lvl1_button" to="." method="_on_Lvl1_button_pressed"]
+[connection signal="pressed" from="Lvl_2_container/Lvl2_button" to="." method="_on_Lvl2_button_pressed"]
+[connection signal="pressed" from="Lvl_3_container/Lvl3_button" to="." method="_on_Lvl3_button_pressed"]
 [connection signal="pressed" from="Back_button_container/Button" to="." method="_on_Back_Button_pressed"]

@@ -189,7 +189,7 @@ animations = [ {
 } ]
 
 [node name="spell_3" type="Area2D" groups=["spell_3"]]
-scale = Vector2( 2.5, 2.5 )
+scale = Vector2( 3.5, 3.5 )
 collision_layer = 512
 collision_mask = 25
 script = ExtResource( 2 )
@@ -204,7 +204,7 @@ position = Vector2( 2, -20 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 4
+frame = 6
 playing = true
 
 [node name="fire_1_2" type="AnimatedSprite" parent="right_side"]
@@ -212,6 +212,7 @@ position = Vector2( 8, -18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
+frame = 2
 playing = true
 
 [node name="fire_1_3" type="AnimatedSprite" parent="right_side"]
@@ -219,7 +220,7 @@ position = Vector2( 16, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 1
+frame = 3
 playing = true
 
 [node name="fire_1_4" type="AnimatedSprite" parent="right_side"]
@@ -227,7 +228,7 @@ position = Vector2( 4, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 12
+frame = 14
 playing = true
 
 [node name="fire_1_5" type="AnimatedSprite" parent="right_side"]
@@ -235,7 +236,7 @@ position = Vector2( 8, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 9
+frame = 11
 playing = true
 
 [node name="fire_1_6" type="AnimatedSprite" parent="right_side"]
@@ -243,7 +244,7 @@ position = Vector2( 2, 6 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 3
+frame = 5
 playing = true
 
 [node name="fire_1_7" type="AnimatedSprite" parent="right_side"]
@@ -251,7 +252,7 @@ position = Vector2( 18, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 10
+frame = 12
 playing = true
 
 [node name="fire_1_8" type="AnimatedSprite" parent="right_side"]
@@ -259,7 +260,7 @@ position = Vector2( 4, 16 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 5
+frame = 7
 playing = true
 
 [node name="fire_2" type="AnimatedSprite" parent="right_side"]
@@ -326,7 +327,7 @@ position = Vector2( 2, -20 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 14
+frame = 16
 playing = true
 
 [node name="fire_1_2" type="AnimatedSprite" parent="left_side"]
@@ -334,7 +335,7 @@ position = Vector2( 8, -18 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 18
+frame = 1
 playing = true
 
 [node name="fire_1_3" type="AnimatedSprite" parent="left_side"]
@@ -342,7 +343,7 @@ position = Vector2( 16, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 16
+frame = 18
 playing = true
 
 [node name="fire_1_4" type="AnimatedSprite" parent="left_side"]
@@ -350,7 +351,7 @@ position = Vector2( 4, -8 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 18
+frame = 1
 playing = true
 
 [node name="fire_1_5" type="AnimatedSprite" parent="left_side"]
@@ -358,7 +359,6 @@ position = Vector2( 8, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 17
 playing = true
 
 [node name="fire_1_6" type="AnimatedSprite" parent="left_side"]
@@ -366,7 +366,7 @@ position = Vector2( 2, 6 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 10
+frame = 12
 playing = true
 
 [node name="fire_1_7" type="AnimatedSprite" parent="left_side"]
@@ -374,7 +374,7 @@ position = Vector2( 18, 4 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 18
+frame = 1
 playing = true
 
 [node name="fire_1_8" type="AnimatedSprite" parent="left_side"]
@@ -382,7 +382,7 @@ position = Vector2( 4, 16 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 7 )
 animation = "New Anim"
-frame = 16
+frame = 18
 playing = true
 
 [node name="fire_2" type="AnimatedSprite" parent="left_side"]

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/mixkit-aquatic-creature-scream-2203.mp3-9194828012c1
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0.0
